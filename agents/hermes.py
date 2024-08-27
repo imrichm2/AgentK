@@ -80,7 +80,7 @@ def check_for_tool_calls(state: MessagesState) -> Literal["tools", "feedback_and
     last_message = messages[-1]
     
     if last_message.tool_calls:
-        if not last_message.content.strip() == "":
+        if not last_message.content == "": ##  removed strip()
             print("hermes thought this:")
             print(last_message.content)
         print()

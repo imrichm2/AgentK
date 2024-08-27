@@ -41,7 +41,7 @@ def check_for_tool_calls(state: MessagesState) -> Literal["tools", END]:
     last_message = messages[-1]
     
     if last_message.tool_calls:
-        if not last_message.content.strip() == "":
+        if not isinstance(last_message.content, str) or not last_message.content == "":  #removed strip()
             print("software_engineer thought this:")
             print(last_message.content)
         print()
